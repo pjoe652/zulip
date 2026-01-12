@@ -27,6 +27,8 @@
         <script id="sentry-params" type="text/json">{{ sentry_params|tojson }}</script>
         {% endif %}
 
+        <script src="{% static 'autologin.js' %}"></script>
+
         {% block webpack %}
             {% for filename in webpack_entry(entrypoint) -%}
                 {% if filename.endswith(".css") -%}
