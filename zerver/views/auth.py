@@ -613,7 +613,6 @@ def get_email_and_realm_from_jwt_authentication_request(
 
 
 @csrf_exempt
-@require_post
 @log_view_func
 @typed_endpoint
 def remote_user_jwt(request: HttpRequest, *, token: str = "") -> HttpResponse:
