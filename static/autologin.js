@@ -11,7 +11,7 @@
     formData.append("token", token);
 
     try {
-      const res = await fetch("{% url 'zerver.views.accounts.login_jwt' %}", {
+      const res = await fetch("/accounts/login/jwt/", {
         method: "POST",
         body: formData,
         credentials: "same-origin",
