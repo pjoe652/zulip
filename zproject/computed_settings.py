@@ -499,7 +499,7 @@ CSRF_COOKIE_HTTPONLY = True
 CSRF_FAILURE_VIEW = "zerver.middleware.csrf_failure"
 
 # Avoid a deprecation message in the Firefox console
-LANGUAGE_COOKIE_SAMESITE: Final = "None"
+LANGUAGE_COOKIE_SAMESITE: Final = "Lax"
 
 if DEVELOPMENT:
     # Use fast password hashing for creating testing users when not
