@@ -593,7 +593,7 @@ def get_email_and_realm_from_jwt_authentication_request(
         key = settings.JWT_AUTH_KEYS[realm.subdomain]["key"]
         algorithms = settings.JWT_AUTH_KEYS[realm.subdomain]["algorithms"]
     except KeyError:
-        raise JsonableError(_("JWT authentication is not enabled for this organization"))
+        raise JsonableError(_("JWT authentication is not enabled for this organization" + f" ({realm.subdomain})"))
 
     if not json_web_token:
         raise JsonableError(_("No JSON web token passed in request"))

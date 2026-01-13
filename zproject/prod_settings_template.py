@@ -581,20 +581,20 @@ SOCIAL_AUTH_SAML_SUPPORT_CONTACT = {
 ## algorithm must be configured here.
 ##
 ## See https://zulip.readthedocs.io/en/latest/production/authentication-methods.html#json-web-tokens-jwt
-# JWT_AUTH_KEYS = {
+JWT_AUTH_KEYS = {
 #     # Subdomain for which this JWT configuration will apply.
-#     "zulip": {
+    "zulip": {
 #         # Shared secret key used to validate jwt tokens, which should be stored
 #         # in zulip-secrets.conf and is read by the get_secret call below.
 #         # The key needs to be securely, randomly generated. Note that if you're
 #         # using the default HS256 algorithm, per RFC 7518, the key needs
 #         # to have at least 256 bits of entropy.
-#         "key": get_secret("jwt_auth_key"),
+        "key": get_secret("jwt_auth_key"),
 #         # Algorithm with which the JWT token are signed.
-#         "algorithms": ["HS256"],
-#     }
-# }
-
+        "algorithms": ["HS256"],
+    },
+}
+# 
 ################
 ## Service configuration
 
