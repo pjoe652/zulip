@@ -4,7 +4,8 @@
     if (!data || data.type !== "ZULIP_JWT_LOGIN") return;
 
     const token = data.token;
+    const url = data.url;
     if (!token) return;
 
-    window.top.location.href = "https://zulip.example.com/accounts/login/jwt/?token=…";
+    window.location.href = url;
   });
