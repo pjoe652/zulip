@@ -509,7 +509,7 @@ class LocaleMiddleware(DjangoLocaleMiddleware):
                 domain=settings.LANGUAGE_COOKIE_DOMAIN,
                 secure=settings.LANGUAGE_COOKIE_SECURE,
                 httponly=settings.LANGUAGE_COOKIE_HTTPONLY,
-                samesite=settings.LANGUAGE_COOKIE_SAMESITE,
+                samesite='None',
             )
 
         return response
