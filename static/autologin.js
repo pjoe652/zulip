@@ -6,23 +6,5 @@
     const token = data.token;
     if (!token) return;
 
-    // POST to Zulip JWT login endpoint
-    const formData = new FormData();
-    formData.append("token", token);
-
-    try {
-      const res = await fetch("/accounts/login/jwt/", {
-        method: "POST",
-        body: formData,
-        credentials: "same-origin",
-      });
-
-      if (res.ok) {
-        window.location.reload();
-      } else {
-        console.error("JWT login failed");
-      }
-    } catch (err) {
-      console.error("JWT login error", err);
-    }
+    window.top.location.href = "https://zulip.example.com/accounts/login/jwt/?token=…";
   });
