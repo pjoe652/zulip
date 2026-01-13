@@ -590,8 +590,9 @@ def get_email_and_realm_from_jwt_authentication_request(
         raise InvalidSubdomainError
 
     try:
-        key = settings.JWT_AUTH_KEYS[realm.subdomain]["key"]
-        algorithms = settings.JWT_AUTH_KEYS[realm.subdomain]["algorithms"]
+        subdomain_key = realm.subdomain if realm.subdomain in settings.JWT_AUTH_KEYS else "zulip"
+        key = settings.JWT_AUTH_KEYS[subdomain_key]["key"]
+        algorithms = settings.JWT_AUTH_KEYS[subdomain_key]["algorithms"]
     except KeyError:
         raise JsonableError(_("JWT authentication is not enabled for this organization" + f" ({realm.subdomain})"))
 
