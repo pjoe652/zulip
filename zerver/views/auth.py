@@ -603,7 +603,7 @@ def get_email_and_realm_from_jwt_authentication_request(
         raise JsonableError(_("No JSON web token passed in request"))
 
     try:
-        options = {"verify_signature": False}
+        options = {"verify_signature": True}
         payload = jwt.decode(json_web_token, key, algorithms=algorithms, options=options)
     except jwt.InvalidTokenError:
         raise JsonableError(_("Bad JSON web token"))
@@ -616,7 +616,6 @@ def get_email_and_realm_from_jwt_authentication_request(
 
 
 @csrf_exempt
-@require_post
 @log_view_func
 @typed_endpoint
 def remote_user_jwt(request: HttpRequest, *, token: str = "") -> HttpResponse:
